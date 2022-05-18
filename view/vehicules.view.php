@@ -43,8 +43,17 @@ ob_start();
         <td><?= $vehicule->getModele() ?></td>
         <td><?= $vehicule->getCouleur() ?></td>
         <td><?= $vehicule->getImmatriculation() ?></td>
-        <td><a href="<?= URL ?>vehicules/edit/<?=$vehicule->getId_vehicule() ?>"><i class="fa-solid fa-edit"></i></a></td>
-        <td><a href="<?= URL ?>vehicules/delete"><i class="fa-solid fa-trash"></i></a></td>
+
+        <td><a href="<?= URL ?>vehicules/edit/<?= $vehicule->getId_vehicule() ?>"><i class="fa-solid fa-edit"></i></a></td>
+
+        <td>
+          <form action="<?= URL ?>vehicules/delete/<?= $vehicule->getId_Vehicule() ?>" method="post"
+          onsubmit="return confirm('Êtes-vous certain de vouloir supprimer ce véhicule ? ')">
+            <button class="btn" type="submit"><i class="fa-solid fa-trash"></i></button>
+          </form>
+        </td>
+    
+
 
       </tr>
     <?php endforeach; ?>

@@ -73,7 +73,8 @@ if (empty($_GET['page'])) {
                 // echo "Modifier un véhicule";
                 $vehiculeController->editVehiculeForm($urlvehicule);
             } elseif (($urlvehicule[1] === "delete")) {
-                echo "Supprimer un véhicule ";
+                // echo "Supprimer un véhicule ";
+                $vehiculeController->deleteVehicule($urlvehicule[2]);
             }
             break;
             //  case 'prout': echo "Daouda";

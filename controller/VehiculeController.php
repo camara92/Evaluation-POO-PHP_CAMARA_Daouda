@@ -31,7 +31,21 @@ class VehiculeController {
         require_once "view/edit.vehicule.view.php"; 
 
     }
-
+public function deleteVehicule($id_vehicule){
+    $this->vehiculeManager->deleteVehiculeBD($id_vehicule);
+    header("Location :".URL ."vehicules");
+}
+// public function deleteVehiculeBD($id_vehicule){
+//     $req="DELETE from vehicule where id_vehicule = :id_vehicule";
+//     $statut = $this->getBdd()->prepare($req); 
+//     $statut->bindValue(":id_vehicule", $id_vehicule, PDO::PARAM_INT);
+//     $result = $statut->execute(); 
+//     $statut->closeCursor(); 
+//     if($result){
+//         $vehicule= $this->getVehiculeById($id_vehicule);
+//         unset($vehicule); 
+//     }
+// }
 
 }
 
