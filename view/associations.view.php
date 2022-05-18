@@ -13,9 +13,9 @@ ob_start();
   <thead class="bg-pconducteurry text-black">
 
     <tr>
-    <th scope="col">idassociations </th>
-      <th scope="col">id-véhicule</th>
-      <th scope="col">id-conducteur</th>
+    <th scope="col">Identifiant associations </th>
+      <th scope="col">identifiant véhicule</th>
+      <th scope="col">identifiant conducteur</th>
       <th scope="col" colspan="2">Actions</th>
     </tr>
   </thead>

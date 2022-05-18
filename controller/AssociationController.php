@@ -26,7 +26,7 @@ class AssociationController {
     }
 
     public function editAssociationForm($id_association){
-        $vehicule = $this->AssociationManager->getAssociationById($id_association);
+        $association = $this->associationManager->getAssociationById($id_association);
         require_once "view/edit.association.view.php"; 
 
     }

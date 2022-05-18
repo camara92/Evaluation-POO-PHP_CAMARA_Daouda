@@ -6,11 +6,11 @@
 
 <form class="bg-light" method="POST" action="<?= URL ?>conducteurs/cvalid">
   <div class="form-group">
-    <label for="id_vehicule">IdVehicule</label>
+    <label for="id_vehicule">Identifiant véhicule</label>
     <input type="number" name="id_vehicule" class="form-control" id="id_vehicule">
   </div>
   <div class="form-group">
-    <label for="id_conducteur">IdConducteur</label>
+    <label for="id_conducteur">Identifiant conducteur</label>
     <input type="number" name="id_conducteur" class="form-control" id="id_conducteur">
   </div>
   <button class="btn btn-success" type="submit">Ajouter une association  </button>

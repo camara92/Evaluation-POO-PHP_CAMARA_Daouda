@@ -31,16 +31,16 @@
         }
 
 
-        public function newAssociationDB($title, $nbplayers){
-            $req = "INSERT INTO associations (title, nbplayers) VALUES  (:title, :nbplayers)";
+        public function newAssociationDB($id_vehicule, $id_conducteur){
+            $req = "INSERT INTO association_vehicule_conducteur (id_vehicule, id_conducteur) VALUES  (:id_vehicule, :id_conducteur)";
             $stat = $this->getBdd()->prepare($req);
-            $stat->bindValue(":title", $title, PDO::PARAM_STR);
-            $stat->bindValue(":nbplayers", $nbplayers, PDO::PARAM_INT);
+            $stat->bindValue(":id_vehicule", $id_vehicule, PDO::PARAM_INT);
+            $stat->bindValue(":id_conducteur", $id_conducteur, PDO::PARAM_INT);
             $result= $stat->execute(); 
             $stat->closeCursor(); 
 
             if($result){
-                $association= new Association($this->getBdd()->lastInsertId(), $title, $nbplayers); 
+                $association= new Association($this->getBdd()->lastInsertId(), $id_vehicule, $id_conducteur); 
                 $this->addAssociation($association); 
 
             }
@@ -49,9 +49,9 @@
             //edit function 
 
             public function getAssociationById($id_association){
-                foreach($this->vehicule as $vehicule){
-                    if($vehicule->getId_association()==$id_association){
-                        return $vehicule; 
+                foreach($this->associations as $association){
+                    if($association->getId_association()==$id_association){
+                        return $association; 
                     }
                 }
             }
