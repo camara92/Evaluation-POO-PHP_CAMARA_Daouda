@@ -23,7 +23,9 @@ class VehiculeController {
        // echo 'Daouda'; 
         //var_dump($_POST);
         $this->vehiculeManager->newVehiculeDB($_POST['marque'], $_POST['modele'], $_POST['couleur'], $_POST['immatriculation']); 
-        header('Location :'. URL ."vehicules");
+        // header("Location :". URL );
+        header('Location:' .URL.'vehicules'); 
+        // echo 'test'; 
     }
 
     public function editVehiculeForm($id_vehicule){
@@ -33,19 +35,10 @@ class VehiculeController {
     }
 public function deleteVehicule($id_vehicule){
     $this->vehiculeManager->deleteVehiculeBD($id_vehicule);
-    header("Location :".URL ."vehicules");
+    // header("Location :".URL ."vehicules");
+    header('Location:' .URL.'vehicules'); 
 }
-// public function deleteVehiculeBD($id_vehicule){
-//     $req="DELETE from vehicule where id_vehicule = :id_vehicule";
-//     $statut = $this->getBdd()->prepare($req); 
-//     $statut->bindValue(":id_vehicule", $id_vehicule, PDO::PARAM_INT);
-//     $result = $statut->execute(); 
-//     $statut->closeCursor(); 
-//     if($result){
-//         $vehicule= $this->getVehiculeById($id_vehicule);
-//         unset($vehicule); 
-//     }
-// }
+
 
 }
 
