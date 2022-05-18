@@ -21,7 +21,7 @@ if (empty($_GET['page'])) {
     $urlassociation = explode("/", filter_var($_GET['page'], FILTER_SANITIZE_URL));
     // var_dump($url); 
 
-// switch($_get['page']); on l'a remplacé par la variable $url puis nos conditions de routages dynamiques 
+    // switch($_get['page']); on l'a remplacé par la variable $url puis nos conditions de routages dynamiques 
 
     switch ($url[0]) {
         case 'accueil':
@@ -30,22 +30,17 @@ if (empty($_GET['page'])) {
         case 'conducteurs':
             if (empty($url[1])) {
                 $conducteurController->displayConducteurs();
-
-             } elseif ($url[1]==="add") {
-                    $conducteurController->newConducteurForm();
-                
-            }
-            elseif ($url[1]==="cvalid") {
+            } elseif ($url[1] === "add") {
+                $conducteurController->newConducteurForm();
+            } elseif ($url[1] === "cvalid") {
                 $conducteurController->newConducteurValidation();
-            
-        }
-            
-            elseif (($url[1] === "add")) {
+            } elseif (($url[1] === "add")) {
                 echo "Créer un conducteur";
             } elseif (($url[1] === "edit")) {
                 echo "Modifier un conducteur";
             } elseif (($url[1] === "delete")) {
-                echo "Supprimer un conducteur";
+                // echo "Supprimer un conducteur";
+                $conducteurController->deleteConducteur($urlconducteur[2]);
             }
             break;
             //  case 'vehicules': require_once ("./view/vehicules.view.php");
@@ -53,21 +48,11 @@ if (empty($_GET['page'])) {
         case 'vehicules':
             if (empty($urlvehicule[1])) {
                 $vehiculeController->displayVehicules();
-            } 
-            
-            elseif ($url[1]==="add") {
+            } elseif ($url[1] === "add") {
                 $vehiculeController->newVehiculeForm();
-            
-        }
-        elseif ($url[1]==="vvalid") {
-            $vehiculeController->newVehiculeValidation();
-        
-    }
-       
-            
-            
-            
-            elseif (($urlvehicule[1] === "add")) {
+            } elseif ($url[1] === "vvalid") {
+                $vehiculeController->newVehiculeValidation();
+            } elseif (($urlvehicule[1] === "add")) {
                 echo "Créer un véhicule";
             } elseif (($urlvehicule[1] === "edit")) {
                 // echo "Modifier un véhicule";
@@ -79,41 +64,30 @@ if (empty($_GET['page'])) {
             break;
             //  case 'prout': echo "Daouda";
             //  break; 
-    
 
-   //association des vehicules 
 
-   case 'associations':
-    if (empty($urlassociation[1])) {
-        $associationController->displayassociations();
-    } 
-    
-    elseif ($url[1]==="add") {
-        $associationController->newAssociationForm();
-    
-}
-elseif ($url[1]==="avalid") {
-    $associationController->newAssociationValidation();
+            //association des vehicules 
 
-}
-
-    
-    
-    
-    elseif (($urlassociation[1] === "add")) {
-        echo "Créer une association ";
-    } elseif (($urlassociation[1] === "edit")) {
-        // echo "Modifier un véhicule";
-        $associationController->editAssociationForm($urlassociation);
-    } elseif (($urlassociation[1] === "delete")) {
-        // echo "Supprimer une association  ";
-        $associationController->deleteAssociation($urlassociation[2]);
+        case 'associations':
+            if (empty($urlassociation[1])) {
+                $associationController->displayassociations();
+            } elseif ($url[1] === "add") {
+                $associationController->newAssociationForm();
+            } elseif ($url[1] === "avalid") {
+                $associationController->newAssociationValidation();
+            } elseif (($urlassociation[1] === "add")) {
+                echo "Créer une association ";
+            } elseif (($urlassociation[1] === "edit")) {
+                // echo "Modifier un véhicule";
+                $associationController->editAssociationForm($urlassociation);
+            } elseif (($urlassociation[1] === "delete")) {
+                // echo "Supprimer une association  ";
+                $associationController->deleteAssociation($urlassociation[2]);
+            }
+            break;
+            //  case 'prout': echo "Daouda";
+            //  break; 
     }
-    break;
-    //  case 'prout': echo "Daouda";
-    //  break; 
-}
-
 }
 
 

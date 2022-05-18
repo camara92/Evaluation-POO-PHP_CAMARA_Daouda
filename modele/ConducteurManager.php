@@ -46,6 +46,23 @@
             }
         }
     
+           //delete function 
+
+    public function deleteConducteurBD($id_conducteur)
+    {
+        $req = "DELETE from conducteur where id_conducteur = :id_conducteur";
+        $statut = $this->getBdd()->prepare($req);
+        $statut->bindValue(":id_conducteur", $id_conducteur, PDO::PARAM_INT);
+        $result = $statut->execute();
+        $statut->closeCursor();
+        if ($result) {
+            $conducteur = $this->getconducteurById($id_conducteur);
+            unset($conducteur);
+        }
+    }
+
+
+
          //edit function 
 
          public function getConducteurById($id_conducteur){

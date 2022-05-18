@@ -25,6 +25,19 @@ class ConducteurController {
         // header('Location :'. URL .'conducteurs');
         header('Location:' .URL.'conducteurs');
     }
+      //delete partie 
+   
+      public function deleteConducteur($id_conducteur)
+      {
+          $this->conducteurManager->deleteConducteurBD($id_conducteur);
+          // header("Location :".URL ."conducteurs");
+          header('Location:' . URL . 'conducteurs');
+      }
+
+
+
+
+    //edition 
     public function editConducteurForm($id_conducteur){
         $conducteur = $this->conducteurManager->getconducteurById($id_conducteur);
         require_once "view/edit.conducteur.view.php"; 
