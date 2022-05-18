@@ -78,7 +78,7 @@ if (empty($_GET['page'])) {
             break;
             //  case 'prout': echo "Daouda";
             //  break; 
-    }
+    
 
    //association des vehicules 
 
@@ -103,7 +103,7 @@ elseif ($url[1]==="vvalid") {
         echo "Créer un véhicule";
     } elseif (($urlassociation[1] === "edit")) {
         // echo "Modifier un véhicule";
-        $associationController->editVehiculeForm($urlassociation);
+        $associationController->editAssociationForm($urlassociation);
     } elseif (($urlassociation[1] === "delete")) {
         echo "Supprimer un véhicule ";
     }

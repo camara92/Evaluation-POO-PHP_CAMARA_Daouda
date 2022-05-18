@@ -46,6 +46,15 @@
             }
         }
     
+         //edit function 
+
+         public function getConducteurById($id_conducteur){
+            foreach($this->vehicule as $vehicule){
+                if($vehicule->getId_conducteur()==$id_conducteur){
+                    return $vehicule; 
+                }
+            }
+        }
     
     }
 

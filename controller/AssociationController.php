@@ -21,10 +21,15 @@ class AssociationController {
         // require_once "view/new.association.view.php";
        // echo 'Daouda'; 
         //var_dump($_POST);
-        $this->associationManager->newAssociationDB($_POST['id_association'], $_POST['id_vehicule'], $_POST['id_conducteur']); 
+        $this->associationManager->newAssociationDB($_POST['id_association'], $_POST['id_association'], $_POST['id_conducteur']); 
         header('Location :'. URL ."associations");
     }
 
+    public function editAssociationForm($id_association){
+        $vehicule = $this->AssociationManager->getAssociationById($id_association);
+        require_once "view/edit.association.view.php"; 
+
+    }
 
 }
 

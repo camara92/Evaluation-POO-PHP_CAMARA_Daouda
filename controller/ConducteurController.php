@@ -24,6 +24,11 @@ class ConducteurController {
         $this->conducteurManager->newConducteurDB($_POST['prenom'], $_POST['nom']); 
         header('Location :'. URL ."conducteurs");
     }
+    public function editConducteurForm($id_conducteur){
+        $conducteur = $this->conducteurManager->getconducteurById($id_conducteur);
+        require_once "view/edit.conducteur.view.php"; 
+
+    }
 
 
 }

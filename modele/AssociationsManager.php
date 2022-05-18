@@ -21,7 +21,7 @@
 
             foreach($myAssociations as $association){
 
-                $g= new Association($association['id_association'], $association["id_vehicule"], $association['id_conducteur']); 
+                $g= new Association($association['id_association'], $association["id_vehicule"], $association['id_association']); 
                 $this->addAssociation($g); 
             }
     
@@ -46,6 +46,15 @@
             }
         }
     
+            //edit function 
+
+            public function getAssociationById($id_association){
+                foreach($this->vehicule as $vehicule){
+                    if($vehicule->getId_association()==$id_association){
+                        return $vehicule; 
+                    }
+                }
+            }
     
     }
 
