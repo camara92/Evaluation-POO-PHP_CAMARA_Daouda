@@ -38,8 +38,16 @@ if (empty($_GET['page'])) {
             } elseif (($url[1] === "add")) {
                 echo "Créer un conducteur";
             } elseif (($url[1] === "edit")) {
-                echo "Modifier un conducteur";
-            } elseif (($url[1] === "delete")) {
+                //echo "Modifier un conducteur";
+                $conducteurController->editConducteurForm($urlconducteur[2]);
+            } 
+             elseif (($urlconducteur[1] === "editvalid")) {
+                // echo "Modifier un véhicule";
+                $conducteurController->editConducteurValidation();
+            } 
+            
+            
+            elseif (($url[1] === "delete")) {
                  //echo "Supprimer un conducteur";
                $conducteurController->deleteConducteur($urlconducteur[2]);
             }
