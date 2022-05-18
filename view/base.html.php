@@ -32,7 +32,7 @@
 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?=URL ?>associations">Association-VehiculoConducteur   </a>
+                    <a class="nav-link" href="<?=URL ?>associations">Association   </a>
 
                 </li>
                
