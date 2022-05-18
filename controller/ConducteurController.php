@@ -30,7 +30,6 @@ class ConducteurController {
       public function deleteConducteur($id_conducteur)
       {
           $this->conducteurManager->deleteConducteurBD($id_conducteur);
-          // header("Location :".URL ."conducteurs");
           header('Location:' . URL . 'conducteurs');
       }
 

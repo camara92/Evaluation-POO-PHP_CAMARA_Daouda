@@ -19,6 +19,7 @@ if (empty($_GET['page'])) {
     $url = explode("/", filter_var($_GET['page'], FILTER_SANITIZE_URL));
     $urlvehicule = explode("/", filter_var($_GET['page'], FILTER_SANITIZE_URL));
     $urlassociation = explode("/", filter_var($_GET['page'], FILTER_SANITIZE_URL));
+    $urlconducteur = explode("/", filter_var($_GET['page'], FILTER_SANITIZE_URL));
     // var_dump($url); 
 
     // switch($_get['page']); on l'a remplacé par la variable $url puis nos conditions de routages dynamiques 
@@ -39,8 +40,8 @@ if (empty($_GET['page'])) {
             } elseif (($url[1] === "edit")) {
                 echo "Modifier un conducteur";
             } elseif (($url[1] === "delete")) {
-                // echo "Supprimer un conducteur";
-                $conducteurController->deleteConducteur($urlconducteur[2]);
+                 //echo "Supprimer un conducteur";
+               $conducteurController->deleteConducteur($urlconducteur[2]);
             }
             break;
             //  case 'vehicules': require_once ("./view/vehicules.view.php");

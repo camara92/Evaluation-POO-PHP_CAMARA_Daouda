@@ -33,9 +33,9 @@ class AssociationController
 
     //delete partie 
    
-    public function deleteAssociation($id_vehicule)
+    public function deleteAssociation($id_association)
     {
-        $this->associationManager->deleteAssociationBD($id_vehicule);
+        $this->associationManager->deleteAssociationBD($id_association);
         // header("Location :".URL ."vehicules");
         header('Location:' . URL . 'associations');
     }
