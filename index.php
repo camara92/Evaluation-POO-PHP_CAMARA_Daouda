@@ -4,18 +4,21 @@ define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" :
     "://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']));
 //debuter  la racine du projet : explication amateur 
 // echo URL;
-//require_once "controller/GameController.php";
+require_once "controller/ConducteurController.php";
 require_once "controller/VehiculeController.php";
+require_once "controller/AssociationController.php";
 
-//$gameController = new GameController();
-// $userController = new UserController();
+$conducteurController = new ConducteurController();
+
 $vehiculeController = new VehiculeController();
+$associationController = new AssociationController();
 if (empty($_GET['page'])) {
     require_once "view/home.view.php";
 } else {
 
     $url = explode("/", filter_var($_GET['page'], FILTER_SANITIZE_URL));
     $urlvehicule = explode("/", filter_var($_GET['page'], FILTER_SANITIZE_URL));
+    $urlassociation = explode("/", filter_var($_GET['page'], FILTER_SANITIZE_URL));
     // var_dump($url); 
 
 // switch($_get['page']); on l'a remplacé par la variable $url puis nos conditions de routages dynamiques 
@@ -24,25 +27,25 @@ if (empty($_GET['page'])) {
         case 'accueil':
             require_once("./view/home.view.php");
             break;
-        case 'games':
+        case 'conducteurs':
             if (empty($url[1])) {
-                $gameController->displayGames();
+                $conducteurController->displayConducteurs();
 
              } elseif ($url[1]==="add") {
-                    $gameController->newGameForm();
+                    $conducteurController->newConducteurForm();
                 
             }
-            elseif ($url[1]==="gvalid") {
-                $gameController->newGameValidation();
+            elseif ($url[1]==="cvalid") {
+                $conducteurController->newConducteurValidation();
             
         }
             
             elseif (($url[1] === "add")) {
-                echo "Créer un jeu";
+                echo "Créer un conducteur";
             } elseif (($url[1] === "edit")) {
-                echo "Modifier un jeu";
+                echo "Modifier un conducteur";
             } elseif (($url[1] === "delete")) {
-                echo "Supprimer un jeu";
+                echo "Supprimer un conducteur";
             }
             break;
             //  case 'vehicules': require_once ("./view/vehicules.view.php");
@@ -77,7 +80,37 @@ if (empty($_GET['page'])) {
             //  break; 
     }
 
-    //partie routage pour utilisateurs 
+   //association des vehicules 
+
+   case 'associations':
+    if (empty($urlassociation[1])) {
+        $associationController->displayassociations();
+    } 
+    
+    elseif ($url[1]==="add") {
+        $associationController->newAssociationForm();
+    
+}
+elseif ($url[1]==="vvalid") {
+    $associationController->newAssociationValidation();
+
+}
+
+    
+    
+    
+    elseif (($urlassociation[1] === "add")) {
+        echo "Créer un véhicule";
+    } elseif (($urlassociation[1] === "edit")) {
+        // echo "Modifier un véhicule";
+        $associationController->editVehiculeForm($urlassociation);
+    } elseif (($urlassociation[1] === "delete")) {
+        echo "Supprimer un véhicule ";
+    }
+    break;
+    //  case 'prout': echo "Daouda";
+    //  break; 
+}
 
 }
 
