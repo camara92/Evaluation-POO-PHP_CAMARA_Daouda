@@ -4,7 +4,7 @@
 
 <p>Formualire ajout d'un conducteur  </p>
 
-<form class="bg-light" method="POST" action="<?= URL ?>conducteurs/cvalid">
+<form class="bg-light" method="POST" action="<?= URL ?>associations/avalid">
   <div class="form-group">
     <label for="id_vehicule">Identifiant véhicule</label>
     <input type="number" name="id_vehicule" class="form-control" id="id_vehicule">

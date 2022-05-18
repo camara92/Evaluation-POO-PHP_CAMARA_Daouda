@@ -21,8 +21,9 @@ class ConducteurController {
         // require_once "view/new.game.view.php";
        // echo 'Daouda'; 
         //var_dump($_POST);
-        $this->conducteurManager->newConducteurDB($_POST['prenom'], $_POST['nom']); 
-        header('Location :'. URL ."conducteurs");
+        $this->conducteurManager->newConducteurDB( $_POST['prenom'], $_POST['nom']); 
+        // header('Location :'. URL .'conducteurs');
+        header('Location:' .URL.'conducteurs');
     }
     public function editConducteurForm($id_conducteur){
         $conducteur = $this->conducteurManager->getconducteurById($id_conducteur);

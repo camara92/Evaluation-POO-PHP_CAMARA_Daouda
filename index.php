@@ -92,7 +92,7 @@ if (empty($_GET['page'])) {
         $associationController->newAssociationForm();
     
 }
-elseif ($url[1]==="vvalid") {
+elseif ($url[1]==="avalid") {
     $associationController->newAssociationValidation();
 
 }
@@ -101,12 +101,13 @@ elseif ($url[1]==="vvalid") {
     
     
     elseif (($urlassociation[1] === "add")) {
-        echo "Créer un véhicule";
+        echo "Créer une association ";
     } elseif (($urlassociation[1] === "edit")) {
         // echo "Modifier un véhicule";
         $associationController->editAssociationForm($urlassociation);
     } elseif (($urlassociation[1] === "delete")) {
-        echo "Supprimer un véhicule ";
+        // echo "Supprimer une association  ";
+        $associationController->deleteAssociation($urlassociation[2]);
     }
     break;
     //  case 'prout': echo "Daouda";

@@ -27,7 +27,7 @@ class VehiculeController {
         header('Location:' .URL.'vehicules'); 
         // echo 'test'; 
     }
-
+//delete partie 
     public function editVehiculeForm($id_vehicule){
         $vehicule = $this->vehiculeManager->getVehiculeById($id_vehicule);
         require_once "view/edit.vehicule.view.php"; 

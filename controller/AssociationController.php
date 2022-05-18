@@ -1,36 +1,53 @@
 <?php
 
 require_once "modele/AssociationsManager.php";
-class AssociationController {
+class AssociationController
+{
     private $associationManager;
 
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->associationManager = new AssociationManager();
-        $this->associationManager->loadAssociations();        
+        $this->associationManager->loadAssociations();
     }
 
-    public function displayAssociations(){
+    public function displayAssociations()
+    {
         $associations = $this->associationManager->getAssociations();
         require_once "View/associations.view.php";
     }
-    public function newAssociationForm(){
+    public function newAssociationForm()
+    {
         require_once "view/new.association.view.php";
     }
-    public function newAssociationValidation(){
+    public function newAssociationValidation()
+    {
         // require_once "view/new.association.view.php";
-       // echo 'Daouda'; 
+        // echo 'Daouda'; 
         //var_dump($_POST);
-        $this->associationManager->newAssociationDB($_POST['id_association'], $_POST['id_association'], $_POST['id_conducteur']); 
-        header('Location :'. URL ."associations");
+        $this->associationManager->newAssociationDB($_POST['id_vehicule'], $_POST['id_conducteur']);
+
+        header('Location:' . URL . 'associations');
     }
 
-    public function editAssociationForm($id_association){
+    //delete partie 
+   
+    public function deleteAssociation($id_vehicule)
+    {
+        $this->associationManager->deleteAssociationBD($id_vehicule);
+        // header("Location :".URL ."vehicules");
+        header('Location:' . URL . 'associations');
+    }
+
+
+
+    //edit paertie 
+    public function editAssociationForm($id_association)
+    {
         $association = $this->associationManager->getAssociationById($id_association);
-        require_once "view/edit.association.view.php"; 
-
+        require_once "view/edit.association.view.php";
     }
-
 }
 
 

@@ -27,7 +27,13 @@ ob_start();
         <td><?= $association->getId_vehicule() ?></td>
         <td><?= $association->getId_conducteur() ?></td>
         <td><a href="<?=URL ?>associations/edit"><i class="fa-solid fa-edit"></i></a></td>
-        <td><a href="<?=URL ?>associations/delete"><i class="fa-solid fa-trash"></i></a></td>
+        <!-- <td><a href="<?=URL ?>associations/delete"><i class="fa-solid fa-trash"></i></a></td> -->
+        <td>
+          <form action="<?= URL ?>associations/delete/<?= $association->getId_association() ?>" method="post"
+          onsubmit="return confirm('Êtes-vous certain de vouloir supprimer ce véhicule ? ')">
+            <button class="btn" type="submit"><i class="fa-solid fa-trash"></i></button>
+          </form>
+        </td>
 
       </tr>
     <?php endforeach; ?>
