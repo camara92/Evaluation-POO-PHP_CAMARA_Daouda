@@ -25,11 +25,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?=URL ?>vehicules">Véhicules </a>
-
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?=URL ?>conducteurs">Conducteurs  </a>
-
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?=URL ?>associations">Association   </a>
