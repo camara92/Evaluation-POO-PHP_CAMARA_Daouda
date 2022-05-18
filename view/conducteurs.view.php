@@ -26,8 +26,14 @@ ob_start();
         <td><?= $conducteur->getId_conducteur() ?></td>
         <td><?= $conducteur->getPrenom() ?></td>
         <td><?= $conducteur->getNom() ?></td>
-        <td><a href="<?=URL ?>conducteurs/edit"><i class="fa-solid fa-edit"></i></a></td>
-        <td><a href="<?=URL ?>conducteurs/delete"><i class="fa-solid fa-trash"></i></a></td>
+        <td><a href="<?=URL ?>conducteurs/edit/<?= $conducteur->getId_conducteur() ?>"><i class="fa-solid fa-edit"></i></a></td>
+        <!-- <td><a href="<?=URL ?>conducteurs/delete"><i class="fa-solid fa-trash"></i></a></td> -->
+        <td>
+          <form action="<?= URL ?>conducteurs/delete/<?= $conducteur->getId_conducteur() ?>" method="post"
+          onsubmit="return confirm('Êtes-vous certain de vouloir supprimer ce conducteur ? ')">
+            <button class="btn" type="submit"><i class="fa-solid fa-trash"></i></button>
+          </form>
+        </td>
 
       </tr>
     <?php endforeach; ?>

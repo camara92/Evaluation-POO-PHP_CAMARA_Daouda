@@ -55,6 +55,27 @@
             }
         }
     }
+    //:requete update 
+
+public function editConducteurDB($id_conducteur, $prenom, $nom){
+    $req= "UPDATE conducteur SET prenom =:prenom, nom =:nom  where id_conducteur =:id_conducteur";
+    $status =$this->getBdd()->prepare($req);
+    $status->bindValue(":id_conducteur", $id_conducteur, PDO::PARAM_INT);
+    $status->bindValue(":prenom", $prenom, PDO::PARAM_STR);
+    $status->bindValue(":nom", $nom, PDO::PARAM_STR);
+  
+
+    $result= $status->execute();
+    $status->closeCursor();
+    if($result){
+       //$this->getConducteurById($id_conducteur)->setId_vehicule($id_conducteur);
+        $this->getConducteurById($id_conducteur)->setMarque($prenom);
+        $this->getConducteurById($id_conducteur)->setModele($nom);
+      
+    }
+}
+
+
 
     public function deleteConducteurBD($id_conducteur){
         $req="DELETE from conducteur where id_conducteur = :id_conducteur";

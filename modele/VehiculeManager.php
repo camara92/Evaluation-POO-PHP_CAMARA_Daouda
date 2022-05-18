@@ -57,6 +57,25 @@
             }
         }
 
+        public function editVehiculeDB($id_vehicule, $marque, $modele, $couleur, $immatriculation){
+            $req= "UPDATE vehicule SET marque =:marque, modele = :modele, couleur =:couleur, immatriculation =:immatriculation where id_vehicule =:id_vehicule";
+            $status =$this->getBdd()->prepare($req);
+            $status->bindValue(":id_vehicule", $id_vehicule, PDO::PARAM_INT);
+            $status->bindValue(":marque", $marque, PDO::PARAM_STR);
+            $status->bindValue(":modele", $modele, PDO::PARAM_STR);
+            $status->bindValue(":couleur", $couleur, PDO::PARAM_STR);
+            $status->bindValue(":immatriculation", $immatriculation, PDO::PARAM_STR);
+
+            $result= $status->execute();
+            $status->closeCursor();
+            if($result){
+               $this->getVehiculeById($id_vehicule)->setId_vehicule($id_vehicule);
+                $this->getVehiculeById($id_vehicule)->setMarque($marque);
+                $this->getVehiculeById($id_vehicule)->setModele($modele);
+                $this->getVehiculeById($id_vehicule)->setCouleur($couleur);
+                $this->getVehiculeById($id_vehicule)->setImmatriculation($immatriculation);
+            }
+        }
         public function deleteVehiculeBD($id_vehicule){
             $req="DELETE from vehicule where id_vehicule = :id_vehicule";
             $statut = $this->getBdd()->prepare($req); 

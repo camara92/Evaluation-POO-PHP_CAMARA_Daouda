@@ -27,12 +27,19 @@ class VehiculeController {
         header('Location:' .URL.'vehicules'); 
         // echo 'test'; 
     }
-//delete partie 
     public function editVehiculeForm($id_vehicule){
         $vehicule = $this->vehiculeManager->getVehiculeById($id_vehicule);
         require_once "view/edit.vehicule.view.php"; 
-
+        
     }
+
+public function editVehiculeValidation(){
+    $this->vehiculeManager->editVehiculeDB($_POST['id_vehicule'], $_POST['marque'], $_POST['modele'], $_POST['couleur'], $_POST['immatriculation']);
+    header('Location:' .URL.'vehicules');
+
+}
+
+    //delete partie 
 public function deleteVehicule($id_vehicule){
     $this->vehiculeManager->deleteVehiculeBD($id_vehicule);
     // header("Location :".URL ."vehicules");

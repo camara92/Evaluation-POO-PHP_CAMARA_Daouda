@@ -57,8 +57,14 @@ if (empty($_GET['page'])) {
                 echo "Créer un véhicule";
             } elseif (($urlvehicule[1] === "edit")) {
                 // echo "Modifier un véhicule";
-                $vehiculeController->editVehiculeForm($urlvehicule);
-            } elseif (($urlvehicule[1] === "delete")) {
+                $vehiculeController->editVehiculeForm($urlvehicule[2]);
+            } 
+            elseif (($urlvehicule[1] === "editvalid")) {
+                // echo "Modifier un véhicule";
+                $vehiculeController->editVehiculeValidation();
+            } 
+
+            elseif (($urlvehicule[1] === "delete")) {
                 // echo "Supprimer un véhicule ";
                 $vehiculeController->deleteVehicule($urlvehicule[2]);
             }

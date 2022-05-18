@@ -44,6 +44,14 @@ class ConducteurController {
     }
 
 
+    public function editConducteurValidation(){
+        $this->conducteurManager->editConducteurDB($_POST['id_conducteur'], $_POST['prenom'], $_POST['nom']);
+        header('Location:' .URL.'conducteurs');
+    
+    }
+
+    //end edit 
+
 }
 
 
